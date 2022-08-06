@@ -1,15 +1,11 @@
-// const express = require('express');
-// const mongoose = require('mongoose') ;
+const  express = require ('express');
+const mongoose = require('mongoose') ;
 
-// const PostMessage = require('../models/postMessage.js') ;
-import express from 'express';
-import mongoose from 'mongoose';
+const PostMessage = require ('../models/postMessage.js');
 
-import PostMessage from '../models/postMessage.js';
 
-const router = express.Router();
 
-export const getPosts = async (req, res) => { 
+module.exports.getPosts = async (req, res) => { 
     try {
         const postMessages = await PostMessage.find();
                 
@@ -19,7 +15,7 @@ export const getPosts = async (req, res) => {
     }
 }
 
-export const getPost = async (req, res) => { 
+module.exports.getPost = async (req, res) => { 
     const { id } = req.params;
 
     try {
@@ -31,7 +27,7 @@ export const getPost = async (req, res) => {
     }
 }
 
-export const createPost = async (req, res) => {
+module.exports.createPost = async (req, res) => {
     const { fullName, classes, course, title, note, selectedFile} = req.body;
 
     const newPostMessage = new PostMessage({ fullName, classes, course, title, note, selectedFile })
@@ -45,7 +41,7 @@ export const createPost = async (req, res) => {
     }
 }
 
-export const updatePost = async (req, res) => {
+module.exports.updatePost = async (req, res) => {
     const { id } = req.params;
     const { fullName, classes, course, title, note, selectedFile } = req.body;
     
@@ -58,7 +54,7 @@ export const updatePost = async (req, res) => {
     res.json(updatedPost);
 }
 
-export const deletePost = async (req, res) => {
+module.exports.deletePost = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
@@ -68,7 +64,7 @@ export const deletePost = async (req, res) => {
     res.json({ message: "Post deleted successfully." });
 }
 
-export const likePost = async (req, res) => {
+module.exports.likePost = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
@@ -80,6 +76,3 @@ export const likePost = async (req, res) => {
     res.json(updatedPost);
 }
 
-export default router;
-
-// module.exports = router;
