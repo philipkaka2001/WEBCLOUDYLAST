@@ -13,7 +13,7 @@ app.listen(4000, ()=>{
 
 });
 
-mongoose.connect("mongodb://localhost:27017/quanlydoan",{
+mongoose.connect('mongodb+srv://quanlitailieu:quanlitailieuquanlitailieu@cluster0.sw6diuf.mongodb.net/test',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 

@@ -43,24 +43,26 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <a>Download</a>
+        <Link to="/download" className="nav-link">
+            DOWNLOAD
+          </Link>
         </li>
         <li>
           <Link to="/contact" className="nav-link">
-            Liên Hệ
+            CONTACT
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/post" className="nav-link">
             POST
           </Link>
-        </li>
+        </li> */}
       </ul>
 
       <div class="row height d-flex justify-content-center align-items-center">
         <div class="col-md-6">
           <div class="form">
-            <i class="fa fa-search"></i>
+            {/* <i class="fa fa-search"></i>
             <input
               type="text"
               class="form-control form-input"
@@ -68,7 +70,7 @@ function Navbar() {
             />
             <span class="left-pan">
               <i class="fa fa-microphone"></i>
-            </span>
+            </span> */}
             <button className="btn btn-primary" type="button" onClick={logOut}>
               Logout
             </button>

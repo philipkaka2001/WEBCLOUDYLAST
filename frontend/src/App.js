@@ -5,8 +5,9 @@ import Register from "./page/Register/Register";
 import Home from './page/Home/Home';
 import "react-toastify/dist/ReactToastify.css";
 import Contact from './components/Contact/Contact';
-import Upload from './components/Upload/Upload';
-import Post from './page/Posts/Post';
+import Download from './components/Posts/Posts';
+import FormPost from './page/FormPost/FormPost';
+
 export default function App() {
   return(
     <BrowserRouter>
@@ -15,8 +16,9 @@ export default function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/upload" element={<Upload/>} />
-        <Route exact path="/post" element={<Post/>} />
+        <Route exact path="/upload" element={<FormPost/>} />
+        <Route exact path="/download" element={<Download/>} />
+        {/* <Route exact path="/post" element={<Post/>} /> */}
         
       </Routes>
     </BrowserRouter>
